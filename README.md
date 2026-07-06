@@ -10,31 +10,34 @@ Presented by [Organized AI](https://organizedai.vip) · Register → https://lum
 
 ---
 
-## What this is
+## The 7 Workshops
 
-Ten self-contained build **stations**. You walk in with prompts; you walk out with typed
-workers, a knowledge graph, a router, an agent factory, verified outputs, telemetry
-receipts, a self-improvement loop, an edge deployment, and a dashboard that makes the whole
-thing visible.
+Seven hands-on tracks. You walk in with prompts; you walk out with a typed, routed,
+remembered, self-improving, locally-runnable, observable stack.
 
-| # | Station | You leave with |
-|---|---------|----------------|
-| 01 | Agents | Prompt → typed, schema-validated worker |
-| 02 | Workflows | A DAG of workers with retries + fan-out |
-| 03 | Second Brain | Knowledge graph ingest + retrieval |
-| 04 | Model Routing | Cost/latency/quality-aware router w/ fallback |
-| 05 | Subagent Orchestration | An orchestrator running a worker pool (the factory) |
-| 06 | Browser QA | A headless verification loop for outputs |
-| 07 | Telemetry | Token + span **receipts** from every worker |
-| 08 | Recursive Self-Improvement | An eval → critique → patch loop |
-| 09 | Deployment | A worker shipped to the edge (Cloudflare Workers) |
-| 10 | Visual System Design | A live dashboard of the whole stack |
+| # | Workshop | You leave with |
+|---|----------|----------------|
+| 01 | **Planning** | Prompts turned into typed workers + workflow DAGs |
+| 02 | **Harness Eng** | The harness/factory: an orchestrator running a worker pool |
+| 03 | **Agent Loops / RSI** | An eval → critique → patch self-improvement loop |
+| 04 | **Local AI** | Models running locally + shipped to the edge |
+| 05 | **Tokenomics** | A cost/latency/quality-aware router with budgets + fallback |
+| 06 | **2nd Brain** | A knowledge graph + memory your agents can query |
+| 07 | **Observability** | Token + span **receipts**, verified outputs, a live dashboard |
+
+Each track lives in [`workshops/`](workshops/) with its own lab guide + checkpoint.
 
 ## Start here
 
 1. Read [`docs/ATTENDEE-SETUP.md`](docs/ATTENDEE-SETUP.md) — get to green in 5 minutes.
 2. Skim [`docs/STACK-MAP.md`](docs/STACK-MAP.md) — the big picture.
-3. Work the stations in order under [`modules/`](modules/). Each has a lab guide + checkpoint.
+3. Work the tracks in order under [`workshops/`](workshops/).
+
+## Under the hood
+
+Each workshop draws on granular build **stations** in [`modules/`](modules/) (typed workers,
+DAGs, routing, memory, orchestration, QA, telemetry, RSI, deployment, dashboard). The
+workshops are the event tracks; the modules are the parts they assemble.
 
 ## For facilitators
 

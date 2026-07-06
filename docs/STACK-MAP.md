@@ -1,53 +1,48 @@
 # Stack Map
 
-The big picture: a factory of agents builds 10 stations that compose into one visible,
-receipt-emitting system, fronted by a tracked registration funnel.
+Seven workshops assemble one visible, receipt-emitting stack, fronted by a tracked
+registration funnel. Each workshop draws on granular build stations in `../modules/`.
 
 ```
-                         +---------------------------------------------+
-                         |      AGENTIC ENGINEERING STACK (Vol 2)       |
-                         +---------------------------------------------+
-                                          |
-        +---------------------------------+---------------------------------+
-        |                                 |                                 |
-   +----v-----+                     +-----v------+                    +------v------+
-   |  FACTORY |                     |   SHARED   |                    |   SKILLS    |
-   | agents/  |                     | primitives |                    | portable    |
-   | -------- |                     | ---------- |                    | procedures  |
-   | orchestr.|                     | worker.ts  |                    | verify      |
-   | builder  |                     | schema.ts  |                    | receipts    |
-   | qa-tester|                     | router.ts  |                    | ship-edge   |
-   | docs     |                     | telemetry  |                    +-------------+
-   +----+-----+                     +-----+------+
-        |                                 |
-        +---------------+-----------------+
-                        |  builds + powers
-                        v
-   +---------------------------------------------------------------------------+
-   |                            10 BUILD STATIONS                               |
-   |                                                                           |
-   |  01 Agents --> 02 Workflows --> 03 Second Brain --> 04 Model Routing       |
-   |   (typed        (DAG +           (KG + memory)        (cost/latency/       |
-   |    workers)      retries)                              quality route)      |
-   |      |                                                      |             |
-   |      +---------------------> 05 Subagent Orchestration <-----+             |
-   |                                (agent factory)                            |
-   |                                     |                                     |
-   |          +--------------------------+--------------------------+          |
-   |          v                          v                          v          |
-   |    06 Browser QA            07 Telemetry            08 Self-Improvement    |
-   |    (verify outputs)         (token receipts)        (eval->critique->patch)|
-   |          |                          |                          |          |
-   |          +--------------+-----------+--------------+-----------+           |
-   |                         v                          v                      |
-   |                  09 Deployment              10 Visual System Design        |
-   |                  (edge / Workers)           (live receipts dashboard)       |
-   +---------------------------------------------------------------------------+
-                        |
-                        v
-   +---------------------------------------------------------------------------+
-   |  LANDING + CONVERSION FUNNEL                                               |
-   |  page view -> "Request to Join" -> registered -> attended -> repo cloned   |
-   |         [ GTM container -> Meta Pixel + TikTok Pixel + GA4 ]               |
-   +---------------------------------------------------------------------------+
+                    +-------------------------------------------------+
+                    |        AGENTIC ENGINEERING STACK (Vol 2)        |
+                    |        7 Workshops - Antler VC, Austin          |
+                    +-------------------------------------------------+
+                                         |
+   +-------------+-------------+---------+---------+-------------+-------------+
+   |             |             |         |         |             |             |
+ +-v--------+ +--v-------+ +---v-----+ +-v------+ +v---------+ +-v--------+ +--v--------+
+ | 01 PLAN  | | 02 HARN. | | 03 LOOP | |04 LOCAL| |05 TOKEN- | | 06 2ND   | | 07 OBSERV |
+ | -------- | | -------- | | ------- | |--------| |  NOMICS  | |  BRAIN   | | -ABILITY  |
+ | typed    | | factory/ | | RSI     | |local + | |cost/lat/ | | KG +     | | receipts  |
+ | workers  | | orchestr | | eval->  | |edge    | |quality   | | memory   | | + browser |
+ | + DAGs   | | subagent | | critique| |models  | |routing   | | retrieval| | QA +      |
+ |          | | pool     | | -> patch| |        | |+ budgets | |          | | dashboard |
+ +----+-----+ +----+-----+ +----+----+ +---+----+ +----+-----+ +----+-----+ +-----+-----+
+      |            |            |          |           |            |             |
+      +------------+------------+----+-----+-----------+------------+-------------+
+                                     |  compose into
+                                     v
+                    +-------------------------------------------------+
+                    |   ONE VISIBLE STACK  (receipts on every run)    |
+                    +-------------------------------------------------+
+                                         |
+                                         v
+   +-------------------------------------------------------------------------------+
+   |  LANDING + CONVERSION FUNNEL                                                   |
+   |  page view -> "Request to Join" -> registered -> attended -> repo cloned       |
+   |         [ GTM container -> Meta Pixel + TikTok Pixel + GA4 ]                   |
+   +-------------------------------------------------------------------------------+
+```
+
+## Workshop -> module mapping
+
+```
+01 Planning       -> modules/01-agents, 02-workflows
+02 Harness Eng    -> modules/05-subagent-orchestration, shared/
+03 Agent Loops    -> modules/08-recursive-self-improvement
+04 Local AI       -> modules/09-deployment, local runtimes
+05 Tokenomics     -> modules/04-model-routing
+06 2nd Brain      -> modules/03-second-brain
+07 Observability  -> modules/06-browser-qa, 07-telemetry, 10-visual-system-design
 ```
