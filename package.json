@@ -1,0 +1,19 @@
+{
+  "name": "agentic-eng-workshops",
+  "private": true,
+  "description": "Vol 2: The Agentic Engineering Stack Workshops — 10 build stations",
+  "packageManager": "pnpm@9",
+  "workspaces": [
+    "shared",
+    "modules/*",
+    "skills/*",
+    "dashboard"
+  ],
+  "scripts": {
+    "setup": "pnpm install",
+    "station": "pnpm --filter"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

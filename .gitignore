@@ -1,0 +1,25 @@
+# deps
+node_modules/
+.pnpm-store/
+
+# env
+.env
+.env.local
+.dev.vars
+
+# build
+dist/
+.wrangler/
+*.tsbuildinfo
+
+# solutions gate (uncomment to hide reference solutions during a live session)
+# modules/**/solution/
+
+# os / editor
+.DS_Store
+.vscode/
+.idea/
+
+# telemetry dumps
+*.otel.json
+receipts/
