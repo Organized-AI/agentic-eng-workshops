@@ -22,3 +22,19 @@
 
 A single request fans out to a worker pool and returns one merged, schema-valid result with
 a nested receipt.
+
+---
+
+## Companion lab — Evolve the Harness → [`harness-evolution/`](harness-evolution/)
+
+A second angle on harness engineering: don't just *build* the harness — **evolve** it against a
+vertical benchmark. A hands-on Python lab where you run a **frozen** local model, read the traces, and
+pull the right lever (prompt / tool / processor / config) to lift the score — the closed loop of agentic RL.
+
+- **Start:** [`harness-evolution/workshop/HANDS-ON.md`](harness-evolution/workshop/HANDS-ON.md)
+- **Deck (Gamma-ready):** [`harness-evolution/SLIDE-DECK.md`](harness-evolution/SLIDE-DECK.md)
+- **Results (frozen model, harness-only):** Control τ²-telecom 0.50→0.75 · Instruction GSM8K 0.65→0.97 ·
+  Action private-KB 0.00→1.00.
+
+> Note: this sub-lab is **Python** (built on HarnessX + τ²-bench), self-contained under `harness-evolution/`
+> — it runs independently of the repo's TypeScript stations.

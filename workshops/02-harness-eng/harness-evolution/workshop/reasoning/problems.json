@@ -1,0 +1,17 @@
+[
+  {"q": "A bat and a ball cost $1.10 in total. The bat costs $1.00 more than the ball. How much does the ball cost, in dollars?", "a": 0.05},
+  {"q": "If it takes 5 machines 5 minutes to make 5 widgets, how many minutes would it take 100 machines to make 100 widgets?", "a": 5},
+  {"q": "A patch of lily pads doubles in size every day. If it takes 48 days to cover the whole lake, how many days does it take to cover half the lake?", "a": 47},
+  {"q": "A store had 120 apples. It sold 25% of them on Monday, then 30% of the remaining apples on Tuesday. How many apples are left?", "a": 63},
+  {"q": "If 3 cats can catch 3 mice in 3 minutes, how many cats are needed to catch 100 mice in 100 minutes?", "a": 3},
+  {"q": "A book costs $12. It is first discounted by 25%, then an additional 20% is taken off the discounted price. What is the final price in dollars?", "a": 7.20},
+  {"q": "The sum of three consecutive integers is 72. What is the largest of the three integers?", "a": 25},
+  {"q": "A rectangle has a perimeter of 36 and its length is twice its width. What is its area?", "a": 72},
+  {"q": "40% of a number is 60. What is 75% of that same number?", "a": 112.5},
+  {"q": "Jane is 3 times as old as her son. In 12 years, she will be twice as old as her son. How old is Jane now?", "a": 36},
+  {"q": "How many distinct ways can the letters of the word APPLE be arranged?", "a": 60},
+  {"q": "A car travels 240 miles on 8 gallons of fuel. At the same efficiency, how many miles can it travel on 15 gallons?", "a": 450},
+  {"q": "What is 15% of 15% of 2000?", "a": 45},
+  {"q": "One worker can paint a house in 6 hours; another can paint it in 4 hours. Working together, how many hours does it take them to paint the house?", "a": 2.4},
+  {"q": "A shirt is on sale for $48 after a 20% discount. What was its original price in dollars?", "a": 60}
+]
