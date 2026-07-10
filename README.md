@@ -12,15 +12,15 @@ Presented by [Organized AI](https://organizedai.vip) · Register → https://lum
 
 ## The 7 Workshops
 
-Seven hands-on tracks. You walk in with prompts; you walk out with a typed, routed,
-remembered, self-improving, locally-runnable, observable stack.
+Seven hands-on tracks. You walk in with prompts; you walk out with a typed, data-fed,
+self-improving, harnessed, cost-aware, remembering, observable stack.
 
 | # | Workshop | You leave with |
 |---|----------|----------------|
 | 01 | **Planning** | Prompts turned into typed workers + workflow DAGs |
-| 02 | **Harness Eng** | The harness/factory: an orchestrator running a worker pool |
+| 02 | **Giving Agents Data** | Tools, MCP, APIs + retrieval feeding your workers at runtime |
 | 03 | **Agent Loops / RSI** | An eval → critique → patch self-improvement loop |
-| 04 | **Local AI** | Models running locally + shipped to the edge |
+| 04 | **Harness Eng** | The harness/factory: an orchestrator running a worker pool |
 | 05 | **Tokenomics** | A cost/latency/quality-aware router with budgets + fallback |
 | 06 | **2nd Brain** | A knowledge graph + memory your agents can query |
 | 07 | **Observability** | Token + span **receipts**, verified outputs, a live dashboard |
@@ -36,13 +36,19 @@ Each track lives in [`workshops/`](workshops/) with its own lab guide + checkpoi
 ## Under the hood
 
 Each workshop draws on granular build **stations** in [`modules/`](modules/) (typed workers,
-DAGs, routing, memory, orchestration, QA, telemetry, RSI, deployment, dashboard). The
-workshops are the event tracks; the modules are the parts they assemble.
+DAGs, data + retrieval, routing, memory, orchestration, QA, telemetry, RSI, deployment,
+dashboard). The workshops are the event tracks; the modules are the parts they assemble.
 
 ## For facilitators
 
 See [`docs/FACILITATOR.md`](docs/FACILITATOR.md) for the run-of-show (room + livestream)
 and [`docs/BUILD-PLAN.md`](docs/BUILD-PLAN.md) for the phased build behind this repo.
+
+## Presentations
+
+| Deck | Path |
+|------|------|
+| **Beyond the Data Center · Local Models Field Guide** | [`presentations/local-models-field-guide/`](presentations/local-models-field-guide/) |
 
 ---
 
