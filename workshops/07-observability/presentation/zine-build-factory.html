@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Vertical Zine Exploded Factory Section</title>
+<style>
+:root{
+  --paper:#f4f2f1; --paper2:#ebe4d7; --ink:#252927; --soft-ink:#656b5a;
+  --shadow:#a4a3a0; --peach:#e0a89e; --clay:#9f6b61; --tan:#e8cdae;
+  --ochre:#dc9b63; --red:#e86661; --sage:#bac19a; --green:#6c8a66;
+  --blue:#a4ccd9; --cyan:#76cad8; --teal:#6a989b; --darkteal:#315d54; --pink:#eaadc8;
+}
+*{box-sizing:border-box} html,body{margin:0;height:100%;overflow:hidden;background:var(--paper);color:var(--ink)}
+body{font-family:"Avenir Next",Inter,ui-sans-serif,system-ui,sans-serif;}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.35;background:
+ radial-gradient(circle at 12% 15%,rgba(37,41,39,.12) 0 1px,transparent 1.8px),
+ radial-gradient(circle at 75% 33%,rgba(159,107,97,.13) 0 1px,transparent 1.8px),
+ linear-gradient(rgba(37,41,39,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(37,41,39,.03) 1px,transparent 1px);
+ background-size:9px 9px,13px 13px,52px 52px,52px 52px;mix-blend-mode:multiply}
+body:after{content:"";position:fixed;inset:-20%;pointer-events:none;opacity:.16;background:repeating-linear-gradient(-7deg,transparent 0 11px,rgba(37,41,39,.16) 12px,transparent 13px)}
+#app,.canvas-wrap{position:fixed;inset:0}.canvas-wrap{touch-action:none;cursor:grab}.canvas-wrap:active{cursor:grabbing}
+.poster-frame{position:fixed;inset:14px calc(50vw - min(47vw,420px));border:3px solid var(--ink);box-shadow:inset 0 0 0 1px rgba(37,41,39,.28),10px 10px 0 rgba(37,41,39,.18);pointer-events:none;z-index:8}.poster-frame:before{content:"VERTICAL FACTORY SECTION";position:absolute;left:12px;top:10px;font:950 8px "SFMono-Regular",monospace;letter-spacing:.18em;color:rgba(37,41,39,.52)}.poster-frame:after{content:"";position:absolute;inset:10px;border:1px dashed rgba(37,41,39,.42)}
+.title{position:fixed;left:36px;top:30px;width:300px;z-index:10}.kicker{font:950 10px/1.1 "SFMono-Regular",Menlo,monospace;letter-spacing:.16em;text-transform:uppercase;color:var(--soft-ink)}.title h1{font:950 35px/.86 "Avenir Next Condensed",Impact,sans-serif;letter-spacing:-.055em;text-transform:uppercase;margin:8px 0 10px}.title p{font:800 11px/1.35 "SFMono-Regular",Menlo,monospace;margin:0;color:#4f5049;max-width:315px}.palette{display:flex;gap:4px;margin-top:12px}.sw{width:22px;height:18px;border:2px solid var(--ink);box-shadow:2px 2px 0 var(--ink)}
+.controls{position:fixed;right:36px;top:30px;z-index:12;display:grid;grid-template-columns:repeat(3,auto);gap:8px}.controls button{border:2px solid var(--ink);background:#f6efe2;color:var(--ink);font:950 9px "SFMono-Regular",monospace;text-transform:uppercase;padding:9px 10px;box-shadow:3px 3px 0 var(--ink);cursor:pointer}.controls button.active{background:var(--red);color:#fff}.controls button.primary{background:var(--cyan);color:var(--ink)}
+#labels{position:fixed;inset:0;pointer-events:none;z-index:11}.label{position:absolute;display:flex;gap:8px;align-items:flex-start;min-width:210px;max-width:280px;padding:7px 9px;background:rgba(244,242,241,.87);border:2px solid var(--ink);box-shadow:4px 4px 0 var(--ink);pointer-events:auto;cursor:pointer;transform:translate(-10px,-50%);transition:transform .28s ease, background .28s ease, box-shadow .28s ease}.label:hover{transform:translate(-10px,-50%) scale(1.035)}.label.active{background:#fff0d1;box-shadow:6px 6px 0 var(--red);transform:translate(-10px,-50%) scale(1.08)}.label .dot{width:14px;height:14px;border:2px solid var(--ink);margin-top:1px}.label .name{font:950 10.5px/1 "SFMono-Regular",monospace;text-transform:uppercase;letter-spacing:.04em}.label .sub{font:800 8.8px/1.25 "SFMono-Regular",monospace;color:#5b5b53;margin-top:3px}.label .step{float:right;margin-left:6px;background:var(--ink);color:var(--paper);padding:1px 4px;font-size:8px}
+svg#leaders{position:fixed;inset:0;z-index:9;pointer-events:none}.leader{stroke:var(--ink);stroke-width:2.2;fill:none;stroke-dasharray:5 4;opacity:.74}.leader.active{stroke:var(--red);stroke-width:3.2;opacity:.98;stroke-dasharray:0}
+.detail{position:fixed;right:36px;bottom:34px;width:min(390px,31vw);max-height:44vh;overflow:auto;z-index:12;background:rgba(244,242,241,.92);border:3px solid var(--ink);box-shadow:8px 8px 0 var(--ink);padding:15px}.detail .num{float:right;border:2px solid var(--ink);background:var(--cyan);font:950 25px/1 "SFMono-Regular",monospace;padding:5px 7px;box-shadow:3px 3px 0 var(--ink)}.detail h2{font:950 25px/.88 "Avenir Next Condensed",Impact,sans-serif;letter-spacing:-.035em;text-transform:uppercase;margin:5px 0 8px}.detail p,.detail li{font:800 10.5px/1.35 "SFMono-Regular",monospace;color:#343630}.detail ul{padding-left:18px}.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:9px}.chip{border:2px solid var(--ink);padding:4px 6px;background:#fff;font:950 8px "SFMono-Regular",monospace;text-transform:uppercase}.stepper{position:fixed;left:36px;bottom:34px;z-index:13;display:flex;align-items:center;gap:8px;background:rgba(244,242,241,.88);border:3px solid var(--ink);box-shadow:6px 6px 0 var(--ink);padding:10px}.stepper button{width:34px;height:32px;border:2px solid var(--ink);background:var(--tan);font:950 16px monospace;cursor:pointer}.stepname{min-width:190px;font:950 10px/1.2 "SFMono-Regular",monospace;text-transform:uppercase}.progress{width:130px;height:12px;border:2px solid var(--ink);background:#fff}.bar{height:100%;width:0;background:var(--red);transition:width .35s ease}.stamp{position:fixed;left:40%;bottom:31px;z-index:10;transform:rotate(-2deg);border:3px solid var(--ink);padding:8px 12px;background:rgba(232,102,97,.78);font:950 12px "SFMono-Regular",monospace;text-transform:uppercase;box-shadow:4px 4px 0 var(--ink)}.quality{position:fixed;right:37px;bottom:calc(34px + 44vh + 16px);z-index:10;max-width:370px;border:2px solid var(--ink);background:var(--tan);box-shadow:3px 3px 0 var(--ink);padding:7px 9px;font:950 8.5px/1.25 "SFMono-Regular",monospace;text-transform:uppercase}.legend{position:fixed;left:36px;bottom:92px;z-index:10;display:grid;grid-template-columns:repeat(2,auto);gap:7px}.legend span{border:2px solid var(--ink);background:rgba(244,242,241,.82);padding:5px 7px;font:950 8px "SFMono-Regular",monospace;text-transform:uppercase;box-shadow:2px 2px 0 var(--ink)}
+@media(max-width:900px){.title{width:260px}.title h1{font-size:29px}.controls{right:22px;top:22px;grid-template-columns:repeat(2,auto)}.detail{left:16px;right:16px;bottom:16px;width:auto;max-height:34vh}.quality,.stamp,.legend{display:none}.stepper{left:16px;bottom:calc(34vh + 32px);padding:7px}.label{min-width:150px;max-width:205px}.poster-frame{inset:10px}}
+</style>
+</head>
+<body>
+<div id="app"><div id="mount" class="canvas-wrap"></div></div><svg id="leaders"></svg><div id="labels"></div><div class="poster-frame"></div>
+<section class="title"><div class="kicker">organized ai // reference grade</div><h1>Tall<br/>Exploded<br/>Factory Section</h1><p>A portrait-format cutaway: more floors, more vertical rise, taller registration rods, and denser callouts like the reference photo.</p><div class="palette"><i class="sw" style="background:#e86661"></i><i class="sw" style="background:#e0a89e"></i><i class="sw" style="background:#dc9b63"></i><i class="sw" style="background:#a4ccd9"></i><i class="sw" style="background:#bac19a"></i></div></section>
+<div class="controls"><button id="prev">◀ Label</button><button id="next" class="primary">Next Label ▶</button><button id="play">Auto Walk</button><button id="explode" class="active">Deep Explode</button><button id="flow" class="active">Packet Flow</button><button id="reset">Reset</button></div>
+<div class="quality">design targets: tall reference aspect · hand-ink poster UI · vertical sectional tower · label-click camera/floor animation</div>
+<aside class="detail" id="detail"></aside>
+<div class="legend"><span>click labels = animated walkthrough</span><span>drag/zoom stays live</span><span>underside truss grids visible</span><span>muted poster palette</span></div>
+<div class="stepper"><button id="stepPrev">‹</button><div><div class="stepname" id="stepname">worker slabs</div><div class="progress"><div class="bar" id="bar"></div></div></div><button id="stepNext">›</button></div>
+<div class="stamp">vertical pass / v4</div>
+<script type="module">
+import * as THREE from 'https://esm.sh/three@0.160.0';
+const mount=document.getElementById('mount'), labels=document.getElementById('labels'), leaders=document.getElementById('leaders'), detail=document.getElementById('detail');
+let W=innerWidth,H=innerHeight, zoom=.54, targetZoom=.54, selected=4, autoWalk=false, flow=true, exploded=true;
+const ink=0x252927, red=0xe86661, paper=0xf4f2f1;
+const FLOORS=[
+ {id:'00',name:'Signal Roof',sub:'market radar · inbox',color:0xf7f5f3,accent:0x917366,body:'A thin rooftop antenna layer gathers weak market signals before they become factory tickets.',tags:['radar','inbox','triage'],impl:['Scan conversations and demand signals','Sort urgency and channel source','Attach origin thread and constraints']},
+ {id:'01',name:'Intake Desk',sub:'slack · whatsapp · voice',color:0xe9ded5,accent:0xc5a093,body:'Incoming messages become paper tickets and are pushed into the tall workshop section.',tags:['gateway','receipt','brief'],impl:['Capture source thread and reply target','Normalize request into a task card','Mark privacy and routing constraints']},
+ {id:'02',name:'Brief Library',sub:'context · examples · refs',color:0xdfcdc3,accent:0x917366,body:'Reference images, prior versions, and constraints are pinned as shelves inside the vertical cutaway.',tags:['refs','context','style'],impl:['Load relevant examples','Sample color and aspect ratio','Preserve prior working interactions']},
+ {id:'03',name:'Planner Loft',sub:'skills · scope · route',color:0xe8cdae,accent:0xdc9b63,body:'Planning is shown as a warm cutaway loft with index cards, bins, and route rails.',tags:['skills','scope','route'],impl:['Choose matching procedural skill','Map files, previews, and worker lanes','Keep visible design constraints pinned']},
+ {id:'04',name:'Worker Slabs',sub:'codex · tools · render',color:0xf3d2c9,accent:0xe86661,focus:true,body:'The core factory floor projects forward for inspection. It carries the densest rooms and animated worker markers.',tags:['build','inspect','patch','render'],impl:['Generate/edit source','Run tests and browser checks','Capture screenshots and artifacts']},
+ {id:'05',name:'Test Mezzanine',sub:'pytest · console · qa',color:0xe2e2df,accent:0x959a8f,body:'A narrow mezzanine captures automated checks, console readouts, and visual QA snapshots.',tags:['tests','console','screens'],impl:['Run smoke checks','Inspect browser console','Collect screenshot evidence']},
+ {id:'06',name:'Memory Archive',sub:'skills · notes · receipts',color:0xe4e7c8,accent:0x6c8a66,body:'A drawer-wall archive stores only durable facts and reusable procedures.',tags:['memory','skills','audit'],impl:['Save compact durable memory','Promote workflows into skills','Avoid temporary task-state storage']},
+ {id:'07',name:'Preview Tower',sub:'tailscale · browser qa',color:0xd5e8eb,accent:0x6a989b,body:'The cyan preview tower exposes Tailnet URLs, browser screenshots, and visual QA loops.',tags:['preview','browser','qa'],impl:['Serve without breaking existing previews','Verify HTTP and console','Run local VLM critique']},
+ {id:'08',name:'Review Gallery',sub:'walkthrough · labels · notes',color:0xdbe3df,accent:0x69989a,body:'A taller gallery aligns callouts on both sides so the viewer can walk the diagram vertically.',tags:['walk','labels','review'],impl:['Advance label by label','Keep leaders readable','Allow drag and zoom at all times']},
+ {id:'09',name:'Ship Gate',sub:'deploy · notify · handoff',color:0xddd1a3,accent:0x999669,body:'Final gate bundles source, live URL, screenshot, and interaction notes into a concise handoff.',tags:['ship','notify','archive'],impl:['Package paths and URLs','Deliver back to origin thread','Keep artifact names stable']}
+];
+const scene=new THREE.Scene();scene.background=new THREE.Color(paper);
+const baseVs=15.8; const camera=new THREE.OrthographicCamera(-baseVs*(W/H),baseVs*(W/H),baseVs,-baseVs,.1,280);camera.position.set(20,23,24);camera.lookAt(0,4.2,0);camera.zoom=zoom;camera.updateProjectionMatrix();
+const renderer=new THREE.WebGLRenderer({antialias:true,alpha:true});renderer.setPixelRatio(Math.min(devicePixelRatio,2));renderer.setSize(W,H);renderer.outputColorSpace=THREE.SRGBColorSpace;mount.appendChild(renderer.domElement);
+scene.add(new THREE.HemisphereLight(0xfffbf2,0xb7aaa0,3.2)); const sun=new THREE.DirectionalLight(0xffffff,2.8);sun.position.set(9,16,8);scene.add(sun);
+const root=new THREE.Group();root.rotation.x=-.10;root.rotation.y=-Math.PI/5;scene.add(root);let targetRotY=root.rotation.y,targetRotX=root.rotation.x; const clickable=[], floorGroups=[]; const bots=[];
+function M(c,op=.82){return new THREE.MeshToonMaterial({color:c,transparent:true,opacity:op});}
+function E(geo,c=ink,op=.86){return new THREE.LineSegments(new THREE.EdgesGeometry(geo,1),new THREE.LineBasicMaterial({color:c,transparent:true,opacity:op}));}
+function box(w,h,d,c,op=.82){const g=new THREE.BoxGeometry(w,h,d);const m=new THREE.Mesh(g,M(c,op));m.add(E(g,ink,.92));return m;}
+function cyl(r,h,c,op=.8){const g=new THREE.CylinderGeometry(r,r,h,8);const m=new THREE.Mesh(g,M(c,op));m.add(E(g,ink,.82));return m;}
+function line(x1,y1,z1,x2,y2,z2,c=ink,op=.7){const g=new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(x1,y1,z1),new THREE.Vector3(x2,y2,z2)]);return new THREE.Line(g,new THREE.LineBasicMaterial({color:c,transparent:true,opacity:op}));}
+const FW=6.9, FD=5.15;
+FLOORS.forEach((f,i)=>{
+ const g=new THREE.Group(); const y=i*.86; g.position.y=y; g.userData.home={x:0,y,z:0,s:1}; root.add(g); floorGroups.push(g);
+ const slab=box(FW,.32,FD,f.color,.78); slab.userData.floor=i; clickable.push(slab); g.add(slab);
+ const shadow=box(FW+.35,.05,FD+.35,0xa4a3a0,.22); shadow.position.set(.12,-.62,.14); g.add(shadow);
+ // top plan grid and room rhythm
+ for(let x=-3.7;x<=3.8;x+=.72) g.add(line(x,.235,-FD/2,x,.235,FD/2,ink,.48));
+ for(let z=-2.7;z<=2.8;z+=.72) g.add(line(-FW/2,.24,z,FW/2,.24,z,ink,.45));
+ for(let r=0;r<12;r++){const w=.38+(r%3)*.16, d=.34+((r+1)%3)*.12, h=.28+(r%2)*.18; const room=box(w,h,d,(r%4===0?f.accent:f.color),r%4===0?.54:.88);room.position.set(-2.75+(r%4)*1.35,.42+h*.35,-1.72+Math.floor(r/4)*1.52);g.add(room)}
+ // underside beams/truss cassette
+ for(let bx=-3.9;bx<=4.0;bx+=.62){const b=box(.045,.13,FD+.15,ink,.74); b.position.set(bx,-.35,0); g.add(b)}
+ for(let bz=-2.9;bz<=3.0;bz+=.62){const b=box(FW+.15,.11,.045,ink,.72); b.position.set(0,-.43,bz); g.add(b)}
+ for(let q=0;q<5;q++){g.add(line(-FW/2+.4+q*1.8,-.55,-FD/2+.35, -FW/2+1.2+q*1.8,-.55,FD/2-.35, red, .38))}
+ // shafts / columns / facade fins / balconies
+ const shaft=box(.58,1.45,.58,0xf8f1e5,.54); shaft.position.set(FW/2-.8,.52,FD/2-.8); g.add(shaft);
+ const shaft2=box(.38,1.05,.38,0xf8f1e5,.38); shaft2.position.set(-FW/2+.75,.38,-FD/2+.75); g.add(shaft2);
+ for(const x of [-FW/2+.35,FW/2-.35]) for(const z of [-FD/2+.35,FD/2-.35]){const c=cyl(.075,1.28,0xf8f1e5,.58);c.position.set(x,.37,z);g.add(c)}
+ for(let k=0;k<7;k++){const fin=box(.08,.78,.15,f.accent,.56); fin.position.set(FW/2+.12,.08,-FD/2+.55+k*.86);g.add(fin)}
+ const balcony=box(1.55,.12,.56,f.accent,.42);balcony.position.set(FW/2+.66,.12,-1.95+(i%4)*1.1);g.add(balcony);
+ const stair=box(1.15,.10,.38,0xf8f1e5,.48);stair.rotation.z=-.16;stair.position.set(-FW/2-.46,.08,-2.25+i*.12);g.add(stair);
+ // poster color tabs on left edge
+ const tab=box(.30,.20,.84,f.accent,.9);tab.position.set(-FW/2-.26,.08,-FD/2+.72+i*.08);g.add(tab);
+ if(f.focus){const hi=box(FW+.52,.08,FD+.52,0xe86661,.38);hi.position.y=-.25;g.add(hi)}
+ for(let b=0;b<4;b++){const bot=new THREE.Group();const body=box(.18,.16,.18,f.accent,.95);const head=box(.12,.11,.12,0xf8f1e5,.95);head.position.y=.16;const halo=cyl(.11,.025,0x252927,.75);halo.position.y=.27;bot.add(body,head,halo);bot.position.set(-2.9+b*1.85,.72,.1+b*.35);bot.userData={speed:.45+b*.12,phase:b+i*.63,floor:i};g.add(bot);bots.push(bot)}
+});
+// global architectural reference rods/context
+for(const x of [-FW/2,FW/2]) for(const z of [-FD/2,FD/2]){const col=box(.16,12.8,.16,0xf8f1e5,.30);col.position.set(x,4.15,z);root.add(col)}
+for(const x of [-FW/2-1.0,FW/2+1.0]) for(const z of [-FD/2-.8,FD/2+.8]){const rod=box(.052,14.2,.052,ink,.42);rod.position.set(x,4.55,z);root.add(rod)}
+for(let r=0;r<9;r++){const rail=box(FW+2.4,.055,.055,ink,.30);rail.position.set(0,r*1.05-.22,FD/2+1.08);root.add(rail)}
+for(let i=0;i<34;i++){const c=box(.18+Math.random()*.45,.18+Math.random()*1.15,.18+Math.random()*.45,0xf8f1e5,.13);c.position.set(-7.5+Math.random()*15,-.75,-7.2-Math.random()*3.1);root.add(c)}
+for(let i=0;i<5;i++){const bridge=box(1.5,.13,.45,0xf8f1e5,.46);bridge.rotation.z=-.12;bridge.position.set(-4.85,i*.82+.18,-3.35+i*.18);root.add(bridge)}
+const labelEls=[];FLOORS.forEach((f,i)=>{const el=document.createElement('div');el.className='label';el.innerHTML=`<div class="dot" style="background:#${f.accent.toString(16).padStart(6,'0')}"></div><div><div class="name"><span class="step">${String(i+1).padStart(2,'0')}</span>${f.id} · ${f.name}</div><div class="sub">${f.sub}</div></div>`;el.onclick=()=>{stopWalk();goTo(i,true)};labels.appendChild(el);labelEls.push(el)});
+function hex(n){return '#'+n.toString(16).padStart(6,'0')}
+function layout(){floorGroups.forEach((g,i)=>{const d=i-selected;let x=0,y=g.userData.home.y,z=0,s=1;if(exploded){x=d*-0.70;y+=d*.92;z=d*.74;s=i===selected?1.13:.975}else{s=i===selected?1.055:1}g.userData.target={x,y,z,s};});root.userData.target={x:exploded?.38:0,z:exploded?.18:0};targetZoom=exploded?.54:.66;}
+function goTo(i,animate=true){selected=(i+FLOORS.length)%FLOORS.length;const f=FLOORS[selected];labelEls.forEach((e,k)=>e.classList.toggle('active',k===selected));detail.innerHTML=`<div class="num">${f.id}</div><div class="kicker">// click-through label ${selected+1}/${FLOORS.length}</div><h2 style="color:${hex(f.accent)}">${f.name}</h2><p>${f.body}</p><ul>${f.impl.map(x=>`<li>${x}</li>`).join('')}</ul><div class="chips">${f.tags.map(t=>`<span class="chip" style="background:${hex(f.accent)}55">${t}</span>`).join('')}</div>`;document.getElementById('stepname').textContent=f.name+' / '+f.sub;document.getElementById('bar').style.width=((selected+1)/FLOORS.length*100)+'%';layout();targetRotY=-Math.PI/5+(selected-4)*.070;targetRotX=-.12+(selected-4)*.010;if(animate){const fg=floorGroups[selected];fg.userData.pulse=1.0;}}
+function project(v){v.applyMatrix4(root.matrixWorld);v.project(camera);return {x:(v.x+1)/2*W,y:(-v.y+1)/2*H}}
+function updateLabels(){leaders.innerHTML='';FLOORS.forEach((f,i)=>{const fg=floorGroups[i];const anchor=project(new THREE.Vector3(FW/2+.56+fg.position.x,fg.position.y+.08,fg.position.z));const left=i%2===0;let x=anchor.x+(left?-300:72)+(i-selected)*5,y=anchor.y+(i-4)*4;if(W<900){x=Math.max(14,Math.min(W-225,x));y=Math.max(80,Math.min(H-210,y));}else{x=Math.max(30,Math.min(W-310,x));y=Math.max(86,Math.min(H-85,y));}labelEls[i].style.left=x+'px';labelEls[i].style.top=y+'px';const p=document.createElementNS('http://www.w3.org/2000/svg','path');p.setAttribute('class','leader'+(i===selected?' active':''));const midx=(anchor.x+x)/2+(left?-45:45);p.setAttribute('d',`M ${anchor.x.toFixed(1)} ${anchor.y.toFixed(1)} C ${midx.toFixed(1)} ${anchor.y.toFixed(1)}, ${midx.toFixed(1)} ${y.toFixed(1)}, ${x.toFixed(1)} ${y.toFixed(1)}`);leaders.appendChild(p)});}
+const ray=new THREE.Raycaster(), mouse=new THREE.Vector2();renderer.domElement.addEventListener('click',e=>{const r=renderer.domElement.getBoundingClientRect();mouse.x=((e.clientX-r.left)/r.width)*2-1;mouse.y=-((e.clientY-r.top)/r.height)*2+1;ray.setFromCamera(mouse,camera);const hit=ray.intersectObjects(clickable,false)[0];if(hit)goTo(hit.object.userData.floor,true)});
+let dragging=false,px=0,py=0;mount.addEventListener('pointerdown',e=>{dragging=true;px=e.clientX;py=e.clientY;mount.setPointerCapture(e.pointerId)});mount.addEventListener('pointerup',()=>dragging=false);mount.addEventListener('pointermove',e=>{if(!dragging)return;const dx=e.clientX-px,dy=e.clientY-py;px=e.clientX;py=e.clientY;if(Math.abs(dx)>1)autoWalk=false;targetRotY+=dx*.006;targetRotX+=dy*.003});
+mount.addEventListener('wheel',e=>{e.preventDefault();targetZoom=zoom=Math.max(.30,Math.min(1.9,zoom*Math.exp(-e.deltaY*.0012)));camera.zoom=zoom;camera.updateProjectionMatrix();},{passive:false});
+function stopWalk(){autoWalk=false;document.getElementById('play').classList.remove('active')} function next(){stopWalk();goTo(selected+1,true)} function prev(){stopWalk();goTo(selected-1,true)}
+document.getElementById('next').onclick=next;document.getElementById('prev').onclick=prev;document.getElementById('stepNext').onclick=next;document.getElementById('stepPrev').onclick=prev;document.getElementById('play').onclick=e=>{autoWalk=!autoWalk;e.currentTarget.classList.toggle('active',autoWalk)};document.getElementById('explode').onclick=e=>{exploded=!exploded;e.currentTarget.classList.toggle('active',exploded);layout()};document.getElementById('flow').onclick=e=>{flow=!flow;e.currentTarget.classList.toggle('active',flow)};document.getElementById('reset').onclick=()=>{selected=4;targetRotY=-Math.PI/5;targetRotX=-.12;zoom=targetZoom=.54;camera.zoom=zoom;camera.updateProjectionMatrix();exploded=true;document.getElementById('explode').classList.add('active');goTo(4,true)};
+addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key===' ')next();if(e.key==='ArrowLeft')prev()});addEventListener('resize',()=>{W=innerWidth;H=innerHeight;camera.left=-baseVs*(W/H);camera.right=baseVs*(W/H);camera.top=baseVs;camera.bottom=-baseVs;camera.updateProjectionMatrix();renderer.setSize(W,H)});
+let lastStep=0;function animate(t){requestAnimationFrame(animate);if(autoWalk&&t-lastStep>2600){lastStep=t;goTo(selected+1,true)}root.rotation.y+=(targetRotY-root.rotation.y)*.055;root.rotation.x+=(targetRotX-root.rotation.x)*.055;root.position.x+=(((root.userData.target||{}).x||0)-root.position.x)*.06;root.position.z+=(((root.userData.target||{}).z||0)-root.position.z)*.06;zoom+=(targetZoom-zoom)*.04;camera.zoom=zoom;camera.updateProjectionMatrix();floorGroups.forEach((g,gi)=>{const q=g.userData.target||g.userData.home;g.position.x+=(q.x-g.position.x)*.10;g.position.y+=(q.y-g.position.y)*.10;g.position.z+=(q.z-g.position.z)*.10;let targetS=q.s||1;if(g.userData.pulse){targetS+=g.userData.pulse*.08;g.userData.pulse*=.90;if(g.userData.pulse<.02)g.userData.pulse=0}g.scale.setScalar(g.scale.x+(targetS-g.scale.x)*.10);});bots.forEach(o=>{const ph=t*.001*(o.userData.speed||1)+o.userData.phase;if(flow){o.position.x=Math.sin(ph)*3.25;o.position.z=Math.cos(ph*.86)*2.25;o.rotation.y+=.04}});renderer.render(scene,camera);updateLabels();}
+goTo(4,false);animate(0);
+</script>
+<script>
+(function(){var m=document.getElementById('mount')||document.querySelector('canvas');if(!m)return;
+var fire=function(){window.dispatchEvent(new Event('resize'))};
+if('ResizeObserver'in window){new ResizeObserver(fire).observe(m.parentElement||m)}
+[120,400,900,1800].forEach(function(t){setTimeout(fire,t)});
+document.addEventListener('visibilitychange',fire);window.addEventListener('pageshow',fire);})();
+</script></body>
+</html>
