@@ -44,6 +44,12 @@ dashboard). The workshops are the event tracks; the modules are the parts they a
 See [`docs/FACILITATOR.md`](docs/FACILITATOR.md) for the run-of-show (room + livestream)
 and [`docs/BUILD-PLAN.md`](docs/BUILD-PLAN.md) for the phased build behind this repo.
 
+## Presentations
+
+| Deck | Path |
+|------|------|
+| **Beyond the Data Center · Local Models Field Guide** | [`presentations/local-models-field-guide/`](presentations/local-models-field-guide/) |
+
 ---
 
 **Best for:** Founders, Engineers, AI Operators, Designers, AI-Native PMs.
