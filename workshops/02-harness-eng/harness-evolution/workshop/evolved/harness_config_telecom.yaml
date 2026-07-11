@@ -1,0 +1,28 @@
+# HarnessX Harness Config — tau2 TELECOM, improved harness
+#
+# = hardened config + PolicyHintProcessor (IRMA), which is telecom-specific:
+#   it detects mobile_data_issue conditions (roaming_disabled_abroad, data quota,
+#   airplane mode, mobile-data-off, VPN, network mode) and injects a targeted
+#   [POLICY ALERT] so the frozen agent takes the correct corrective action.
+#
+# Compare against harness_config_base.yaml (vanilla) on domain=telecom.
+# Run: make eval CONFIG=evolved/harness_config_telecom.yaml TAG=telecom_evolved DOMAIN=telecom
+
+processors:
+
+  - _target_: harnessx.processors.context.system_prompt.SystemPromptProcessor
+    system_builder:
+      _target_: harnessx.processors.context.strategies.system_prompt.null.NullSystemPromptBuilder
+
+  # ── AUTHORED/ENABLED delta: telecom IRMA policy hints ────────────────────────
+  - _target_: benchmarks.tau2.policy_hint.PolicyHintProcessor
+
+  - _target_: harnessx.processors.control.token_budget.TokenBudgetProcessor
+  - _target_: harnessx.processors.control.loop_detection.LoopDetectionProcessor
+  - _target_: harnessx.processors.control.parse_retry.ParseRetryProcessor
+  - _target_: harnessx.processors.control.tool_call_correction.ToolCallCorrectionLayer
+  - _target_: harnessx.processors.control.tool_failure_guard.ToolFailureGuard
+  - _target_: harnessx.processors.tools.tool_filter.ToolFilterProcessor
+    tool_filter:
+      _target_: benchmarks.tau2.tool_filter.PhaseAwareToolFilter
+      read_only_steps: 2

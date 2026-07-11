@@ -1,0 +1,37 @@
+# HarnessX Harness Config — tau2 retail, EVOLVED by the meta-agent (Claude Code)
+#
+# = benchmarks/tau2/harness_config.yaml (hardened) + one authored component:
+#   RetailExchangeGuide (IRMA reminder for exchange/return tasks).
+#
+# Rationale: workshop/evolved/EVOLVE-JOURNAL.md
+# Run: cd workshop && make eval CONFIG=evolved/harness_config_evolved.yaml TAG=evolved2
+
+processors:
+
+  # ── Context ─────────────────────────────────────────────────────────────────
+  - _target_: harnessx.processors.context.system_prompt.SystemPromptProcessor
+    system_builder:
+      _target_: harnessx.processors.context.strategies.system_prompt.null.NullSystemPromptBuilder
+
+  # ── AUTHORED (Control / IRMA) — the evolve delta over the hardened config ─────
+  # Prepends retail-exchange discipline to system_prompt on exchange/return tasks.
+  # Targets the post-ParseRetry bottleneck: incomplete product gathering + wrong
+  # variant selection on exchange_delivered_order_items.
+  - _target_: benchmarks.tau2.retail_exchange_guide.RetailExchangeGuide
+
+  # ── Context window safety ────────────────────────────────────────────────────
+  - _target_: harnessx.processors.control.token_budget.TokenBudgetProcessor
+
+  # ── Loop detection ───────────────────────────────────────────────────────────
+  - _target_: harnessx.processors.control.loop_detection.LoopDetectionProcessor
+
+  # ── Parse / tool-call reliability (this is what cleared F1) ──────────────────
+  - _target_: harnessx.processors.control.parse_retry.ParseRetryProcessor
+  - _target_: harnessx.processors.control.tool_call_correction.ToolCallCorrectionLayer
+  - _target_: harnessx.processors.control.tool_failure_guard.ToolFailureGuard
+
+  # ── Phase-aware tool filter ──────────────────────────────────────────────────
+  - _target_: harnessx.processors.tools.tool_filter.ToolFilterProcessor
+    tool_filter:
+      _target_: benchmarks.tau2.tool_filter.PhaseAwareToolFilter
+      read_only_steps: 2

@@ -1,0 +1,14 @@
+[
+  {"q": "What is the unit price, in dollars, of SKU ZT-9930?", "a": 89.99},
+  {"q": "What is the unit price, in dollars, of the Sentinel Arm?", "a": 8450},
+  {"q": "How many days is the return window for electronics at Acme Robotics?", "a": 45},
+  {"q": "What is Acme Robotics' restocking fee, as a percentage?", "a": 12},
+  {"q": "What is the warranty period, in days, for Acme Robotics robotics arms?", "a": 730},
+  {"q": "What is the free-shipping order threshold, in dollars, at Acme Robotics?", "a": 500},
+  {"q": "What is the unit price, in dollars, of the Vortex Charger?", "a": 349},
+  {"q": "In what year was Acme Robotics founded?", "a": 2019},
+  {"q": "What is the unit price, in dollars, of SKU MX-0087?", "a": 214.50},
+  {"q": "At what extension is the Acme Robotics RMA contact reachable?", "a": 4417},
+  {"q": "What is the unit price, in dollars, of the Nimbus Drone?", "a": 1299},
+  {"q": "What is the price difference, in dollars, between the Sentinel Arm and the Vortex Charger?", "a": 8101}
+]

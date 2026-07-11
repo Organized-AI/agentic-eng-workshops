@@ -1,0 +1,12 @@
+# ABLATION config — vanilla base + ONLY PolicyHintProcessor (IRMA).
+# Isolates IRMA's marginal contribution on telecom (no control processors).
+# Compare against: harness_config_base.yaml (vanilla), harness_config.yaml
+# (control processors, no IRMA), harness_config_telecom.yaml (full).
+
+processors:
+  - _target_: harnessx.processors.context.system_prompt.SystemPromptProcessor
+    system_builder:
+      _target_: harnessx.processors.context.strategies.system_prompt.null.NullSystemPromptBuilder
+  # the only lever under test:
+  - _target_: benchmarks.tau2.policy_hint.PolicyHintProcessor
+  - _target_: harnessx.processors.control.token_budget.TokenBudgetProcessor
