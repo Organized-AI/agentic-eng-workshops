@@ -49,6 +49,7 @@ and [`docs/BUILD-PLAN.md`](docs/BUILD-PLAN.md) for the phased build behind this 
 | Deck | Path |
 |------|------|
 | **Beyond the Data Center · Local Models Field Guide** | [`presentations/local-models-field-guide/`](presentations/local-models-field-guide/) |
+| **Stop Prompting Agents, Start Designing Loops** | [`presentations/agent-loops/`](presentations/agent-loops/) |
 
 ---
 
