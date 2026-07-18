@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="dark" />
+    <meta
+      name="description"
+      content="Jockey Ad Forge — pass-through video intelligence for the existing Meta YOLO-MLX ad buyer. Marengo + Pegasus moment inventory, Organized Mart catalog matcher, Stripe Agentic Payment rail, rendered variants."
+    />
+    <title>Jockey Ad Forge — YOLO-MLX video brain</title>
+    <script type="module" crossorigin src="assets/index-QP4kplTQ.js"></script>
+    <link rel="stylesheet" crossorigin href="assets/index-BbedGecq.css">
+  </head>
+  <body>
+    <div id="root"></div>
+  <script>
+/* isolate the Catalogue Building section for embedding: ?view=catalogue
+   hides the site nav + all sibling sections and lets #process fill the frame */
+(function(){
+  var want = location.search.indexOf('view=catalogue')>-1 || location.hash==='#catalogue' || location.hash==='#process';
+  if(!want) return;
+  function run(){
+    var sec=document.getElementById('process'); if(!sec) return;
+    var main=sec.parentElement;
+    Array.prototype.forEach.call(main.children,function(c){ c.style.display = (c===sec)?'':'none'; });
+    document.querySelectorAll('header,.topbar,footer').forEach(function(e){e.style.display='none';});
+    var pg=document.querySelector('.page'); if(pg) pg.style.paddingTop='0';
+    sec.style.margin='0';
+    window.scrollTo(0,0);
+    [100,500,1200].forEach(function(t){setTimeout(function(){window.dispatchEvent(new Event('resize'))},t)});
+  }
+  var n=0,iv=setInterval(function(){run(); if(++n>16)clearInterval(iv);},220);
+  document.addEventListener('DOMContentLoaded',run);
+  if('ResizeObserver'in window){document.addEventListener('DOMContentLoaded',function(){var r=document.getElementById('root'); if(r) new ResizeObserver(function(){window.dispatchEvent(new Event('resize'))}).observe(r);});}
+})();
+</script>
+</body>
+</html>
